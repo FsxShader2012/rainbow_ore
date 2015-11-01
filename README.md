@@ -10,9 +10,7 @@ Copyright (C) 2015 Robin Kuhn (KingSmarty)
 
 Rainbow Ore code is licensed under the GNU LGPLv2.1.
 
-Tool textures are licensed under the same license as minetest_game.
-
-3d_armor and shields textures are licensed under the same license as 3d_armor modpack.
+Textures are licensed under the same license as minetest_game.
 
 Crafting:
 =========
