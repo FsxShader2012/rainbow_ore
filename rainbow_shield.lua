@@ -2,7 +2,7 @@
 minetest.register_tool("rainbow_ore:rainbow_ore_shield", {
 	description = "Rainbow Shield",
 	inventory_image = "rainbow_ore_shield_inv.png",
-	groups = {armor_shield=30, armor_heal=24, armor_use=50},
+	groups = {armor_shield=20, armor_heal=17, armor_use=40, armor_fire=1},
 	wear = 0,
 })
 
