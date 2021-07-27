@@ -1,24 +1,28 @@
+
+local S = minetest.get_translator(rainbow_ore.modname)
+
+
 --Define Rainbow Armor
 minetest.register_tool("rainbow_ore:rainbow_ore_helmet", {
-	description = "Rainbow Helmet",
+	description = S("Rainbow Helmet"),
 	inventory_image = "rainbow_ore_helmet_inv.png",
 	groups = {armor_head=20, armor_heal=17, armor_use=40},
 	wear = 0,
 })
 minetest.register_tool("rainbow_ore:rainbow_ore_chestplate", {
-	description = "Rainbow Chestplate",
+	description = S("Rainbow Chestplate"),
 	inventory_image = "rainbow_ore_chestplate_inv.png",
 	groups = {armor_torso=25, armor_heal=17, armor_use=40},
 	wear = 0,
 })
 minetest.register_tool("rainbow_ore:rainbow_ore_leggings", {
-	description = "Rainbow Leggings",
+	description = S("Rainbow Leggings"),
 	inventory_image = "rainbow_ore_leggings_inv.png",
 	groups = {armor_legs=25, armor_heal=17, armor_use=40},
 	wear = 0,
 })
 minetest.register_tool("rainbow_ore:rainbow_ore_boots", {
-	description = "Rainbow Boots",
+	description = S("Rainbow Boots"),
 	inventory_image = "rainbow_ore_boots_inv.png",
 	groups = {armor_feet=20, armor_heal=17, armor_use=40},
 	wear = 0,
