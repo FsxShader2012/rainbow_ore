@@ -56,13 +56,18 @@ minetest.register_tool("rainbow_ore:rainbow_ore_pickaxe", {
 })
 
 
+local stick = "rainbow_ore:rainbow_ore_ingot"
+if minetest.registered_items["default:stick"] then
+	stick = "default:stick"
+end
+
 --Define Rainbow_Ore_Pickaxe crafting recipe
 minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_pickaxe",
 	recipe = {
 		{"rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "default:stick", ""},
-		{"", "default:stick", ""}
+		{"", stick, ""},
+		{"", stick, ""}
 	}
 })
 
@@ -87,8 +92,8 @@ minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_axe",
 	recipe = {
 		{"rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot", ""},
-		{"rainbow_ore:rainbow_ore_ingot", "default:stick", ""},
-		{"", "default:stick", ""}
+		{"rainbow_ore:rainbow_ore_ingot", stick, ""},
+		{"", stick, ""}
 	}
 })
 
@@ -96,8 +101,8 @@ minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_axe",
 	recipe = {
 		{"", "rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "default:stick", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "default:stick", ""}
+		{"", stick, "rainbow_ore:rainbow_ore_ingot"},
+		{"", stick, ""}
 	}
 })
 
@@ -123,8 +128,8 @@ minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_shovel",
 	recipe = {
 		{"", "rainbow_ore:rainbow_ore_ingot", ""},
-		{"", "default:stick", ""},
-		{"", "default:stick", ""}
+		{"", stick, ""},
+		{"", stick, ""}
 	}
 })
 
@@ -150,7 +155,7 @@ minetest.register_craft({
 	recipe = {
 		{"", "rainbow_ore:rainbow_ore_ingot", ""},
 		{"", "rainbow_ore:rainbow_ore_ingot", ""},
-		{"", "default:stick", ""}
+		{"", stick, ""}
 	}
 })
 
