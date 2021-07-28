@@ -1,17 +1,24 @@
 -- Rainbow_Ore Test Mod ----------- Copyright Robin Kuhn 2015
 
+rainbow_ore = {}
+rainbow_ore.modname = minetest.get_current_modname()
+rainbow_ore.modpath = minetest.get_modpath(rainbow_ore.modname)
+
 --Check for mods
 if minetest.get_modpath("3d_armor") then
-dofile(minetest.get_modpath("rainbow_ore").."/rainbow_armor.lua")
+dofile(rainbow_ore.modpath.."/rainbow_armor.lua")
 end
 
 if minetest.get_modpath("shields") then
-dofile(minetest.get_modpath("rainbow_ore").."/rainbow_shield.lua")
+dofile(rainbow_ore.modpath.."/rainbow_shield.lua")
 end
+
+
+local S = minetest.get_translator(rainbow_ore.modname)
 
 -- Define Rainbow_Ore_Block node
 minetest.register_node("rainbow_ore:rainbow_ore_block", {
-	description = "Rainbow Ore",
+	description = S("Rainbow Ore"),
 	tiles = {"rainbow_ore_block.png"},
 	groups = {stone=2, cracky=3},
 	drop = "rainbow_ore:rainbow_ore_block",
@@ -21,7 +28,7 @@ minetest.register_node("rainbow_ore:rainbow_ore_block", {
 
 --Define Rainbow_Ore_Ingot node
 minetest.register_craftitem("rainbow_ore:rainbow_ore_ingot", {
-	description = "Rainbow Ore Ingot",
+	description = S("Rainbow Ore Ingot"),
 	inventory_image = "rainbow_ore_ingot.png",
 })
 
@@ -36,7 +43,7 @@ minetest.register_craft({
 
 --Register Rainbow Pickaxe
 minetest.register_tool("rainbow_ore:rainbow_ore_pickaxe", {
-	description = "Rainbow Pickaxe",
+	description = S("Rainbow Pickaxe"),
 	inventory_image = "rainbow_ore_pickaxe.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -62,7 +69,7 @@ minetest.register_craft({
 
 --Register Rainbow Axe
 minetest.register_tool("rainbow_ore:rainbow_ore_axe", {
-	description = "Rainbow Axe",
+	description = S("Rainbow Axe"),
 	inventory_image = "rainbow_ore_axe.png",
 	tool_capabilities = {
 		full_punch_interval = 0.9,
@@ -97,7 +104,7 @@ minetest.register_craft({
 
 --Register Rainbow shovel
 minetest.register_tool("rainbow_ore:rainbow_ore_shovel", {
-	description = "Rainbow Shovel",
+	description = S("Rainbow Shovel"),
 	inventory_image = "rainbow_ore_shovel.png",
 	wield_image = "rainbow_ore_shovel.png^[transformR90",
 	tool_capabilities = {
@@ -124,7 +131,7 @@ minetest.register_craft({
 
 --Register Rainbow sword
 minetest.register_tool("rainbow_ore:rainbow_ore_sword", {
-	description = "Rainbow Sword",
+	description = S("Rainbow Sword"),
 	inventory_image = "rainbow_ore_sword.png",
 	tool_capabilities = {
 		full_punch_interval = 0.7,
