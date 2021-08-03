@@ -3,7 +3,7 @@ local S = minetest.get_translator(rainbow_ore.modname)
 
 
 --Define Rainbow shield
-minetest.register_tool("rainbow_ore:rainbow_ore_shield", {
+minetest.register_tool("rainbow_ore:shield", {
 	description = S("Rainbow Shield"),
 	inventory_image = "rainbow_ore_shield_inv.png",
 	groups = {armor_shield=20, armor_heal=17, armor_use=40, armor_fire=1},
@@ -13,10 +13,15 @@ minetest.register_tool("rainbow_ore:rainbow_ore_shield", {
 
 --Define Rainbow shield crafting recipe
 minetest.register_craft({
-	output = "rainbow_ore:rainbow_ore_shield",
+	output = "rainbow_ore:shield",
 	recipe = {
-		{"rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot"},
-		{"rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "rainbow_ore:rainbow_ore_ingot", ""},
+		{"rainbow_ore:ingot", "rainbow_ore:ingot", "rainbow_ore:ingot"},
+		{"rainbow_ore:ingot", "rainbow_ore:ingot", "rainbow_ore:ingot"},
+		{"", "rainbow_ore:ingot", ""},
 	},
 })
+
+
+-- backward compatibility
+
+core.register_alias("rainbow_ore:rainbow_ore_shield", "rainbow_ore:shield")
