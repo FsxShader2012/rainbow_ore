@@ -6,4 +6,4 @@ rainbow_ore.stick (Stick item for rainbow tools recipes) string default:stick
 
 # Determines node that will be replaced with "rainbow_ore:rainbow_ore_block"
 # when ore is spawned.
-rainbow_ore.spawn_within (Ore spawns within) string default:stone
+rainbow_ore.spawn_within (Rainbow ore spawns within) string default:stone
