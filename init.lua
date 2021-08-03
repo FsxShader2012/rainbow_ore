@@ -56,9 +56,13 @@ minetest.register_tool("rainbow_ore:rainbow_ore_pickaxe", {
 })
 
 
-local stick = "rainbow_ore:rainbow_ore_ingot"
-if minetest.registered_items["default:stick"] then
-	stick = "default:stick"
+local stick = minetest.settings:get("rainbow_ore.stick")
+if not stick then
+	if minetest.registered_items["default:stick"] then
+		stick = "default:stick"
+	else
+		stick = "rainbow_ore:rainbow_ore_ingot"
+	end
 end
 
 --Define Rainbow_Ore_Pickaxe crafting recipe
