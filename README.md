@@ -1,7 +1,7 @@
 Rainbow Ore
 ===========
 
-This mod features a new ore called "Rainbow Ore" (as if you guessed it :D) wich is pretty rare but also pretty powerful.
+This mod features a new ore called "Rainbow Ore" (as if you guessed it :D) which is pretty rare but also pretty powerful.
 
 License
 =======
