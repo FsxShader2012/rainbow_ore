@@ -172,13 +172,23 @@ minetest.register_craft({
 
 
 --Make Rainbow Ore spawn
-minetest.register_ore({
-	ore_type = "scatter",
-	ore = "rainbow_ore:rainbow_ore_block",
-	wherein = "default:stone",
-	clust_scarcity = 17*17*17,
-	clust_num_ores = 3,
-	clust_size = 3,
-	y_min = -31000,
-	y_max = -200,
-})
+local spawn_within = minetest.settings:get("rainbow_ore.spawn_within") or "default:stone"
+minetest.log("action", "[rainbow_ore] ore set to spawn within " .. spawn_within
+	.. ", this can be changed with rainbow_ore.spawn_within setting")
+
+minetest.register_on_mods_loaded(function()
+	if minetest.registered_nodes[spawn_within] then
+		minetest.register_ore({
+			ore_type = "scatter",
+			ore = "rainbow_ore:rainbow_ore_block",
+			wherein = spawn_within,
+			clust_scarcity = 17*17*17,
+			clust_num_ores = 3,
+			clust_size = 3,
+			y_min = -31000,
+			y_max = -200,
+		})
+	else
+		minetest.log("warning", "[rainbow_ore] " .. spawn_within .. " is not a registered node, rainbow ore will not spawn")
+	end
+end)

@@ -1,0 +1,4 @@
+
+# Determines node that will be replaced with "rainbow_ore:rainbow_ore_block"
+# when ore is spawned.
+rainbow_ore.spawn_within (Ore spawns within) string default:stone
