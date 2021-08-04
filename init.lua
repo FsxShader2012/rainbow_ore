@@ -56,13 +56,22 @@ minetest.register_tool("rainbow_ore:rainbow_ore_pickaxe", {
 })
 
 
+local stick = minetest.settings:get("rainbow_ore.stick")
+if not stick then
+	if minetest.registered_items["default:stick"] then
+		stick = "default:stick"
+	else
+		stick = "rainbow_ore:rainbow_ore_ingot"
+	end
+end
+
 --Define Rainbow_Ore_Pickaxe crafting recipe
 minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_pickaxe",
 	recipe = {
 		{"rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "default:stick", ""},
-		{"", "default:stick", ""}
+		{"", stick, ""},
+		{"", stick, ""}
 	}
 })
 
@@ -87,8 +96,8 @@ minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_axe",
 	recipe = {
 		{"rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot", ""},
-		{"rainbow_ore:rainbow_ore_ingot", "default:stick", ""},
-		{"", "default:stick", ""}
+		{"rainbow_ore:rainbow_ore_ingot", stick, ""},
+		{"", stick, ""}
 	}
 })
 
@@ -96,8 +105,8 @@ minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_axe",
 	recipe = {
 		{"", "rainbow_ore:rainbow_ore_ingot", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "default:stick", "rainbow_ore:rainbow_ore_ingot"},
-		{"", "default:stick", ""}
+		{"", stick, "rainbow_ore:rainbow_ore_ingot"},
+		{"", stick, ""}
 	}
 })
 
@@ -123,8 +132,8 @@ minetest.register_craft({
 	output = "rainbow_ore:rainbow_ore_shovel",
 	recipe = {
 		{"", "rainbow_ore:rainbow_ore_ingot", ""},
-		{"", "default:stick", ""},
-		{"", "default:stick", ""}
+		{"", stick, ""},
+		{"", stick, ""}
 	}
 })
 
@@ -150,7 +159,7 @@ minetest.register_craft({
 	recipe = {
 		{"", "rainbow_ore:rainbow_ore_ingot", ""},
 		{"", "rainbow_ore:rainbow_ore_ingot", ""},
-		{"", "default:stick", ""}
+		{"", stick, ""}
 	}
 })
 
@@ -167,13 +176,23 @@ minetest.register_craft({
 
 
 --Make Rainbow Ore spawn
-minetest.register_ore({
-	ore_type = "scatter",
-	ore = "rainbow_ore:rainbow_ore_block",
-	wherein = "default:stone",
-	clust_scarcity = 17*17*17,
-	clust_num_ores = 3,
-	clust_size = 3,
-	y_min = -31000,
-	y_max = -200,
-})
+local spawn_within = minetest.settings:get("rainbow_ore.spawn_within") or "default:stone"
+minetest.log("action", "[rainbow_ore] ore set to spawn within " .. spawn_within
+	.. ", this can be changed with rainbow_ore.spawn_within setting")
+
+minetest.register_on_mods_loaded(function()
+	if minetest.registered_nodes[spawn_within] then
+		minetest.register_ore({
+			ore_type = "scatter",
+			ore = "rainbow_ore:rainbow_ore_block",
+			wherein = spawn_within,
+			clust_scarcity = 17*17*17,
+			clust_num_ores = 3,
+			clust_size = 3,
+			y_min = -31000,
+			y_max = -200,
+		})
+	else
+		minetest.log("warning", "[rainbow_ore] " .. spawn_within .. " is not a registered node, rainbow ore will not spawn")
+	end
+end)
