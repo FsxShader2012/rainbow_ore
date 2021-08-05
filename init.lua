@@ -207,6 +207,15 @@ local aliases = {
 	"shovel",
 	"sword",
 	"block",
+	-- xdecor nodes
+	"block_cube",
+	"block_doublepanel",
+	"block_halfstair",
+	"block_micropanel",
+	"block_microslab",
+	"block_nanoslab",
+	"block_panel",
+	"block_thinstair",
 }
 
 for _, al in ipairs(aliases) do
